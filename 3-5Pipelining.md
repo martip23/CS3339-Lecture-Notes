@@ -22,6 +22,17 @@
 * All Instructions are the same size (32 bits)
 * Symmetry across formats (3)
 * Memory operations only occur in loads/stores
-* Each instruction writes at most one result, and at the end.
-* 
+* Each instruction writes at most one result, and at the end. 
 
+### How to make system wait during pipelining?
+* **Holding on to signal before propagating**
+	* Pipeline State Registers
+	* Named by stages they seperate
+		* ```IF/ID -> ID/EX -> EX/MEM -> MEM/WB```
+	* Address can be propagated through state registers when there is a write/back return address
+* Control bit is also propagated.
+
+## Overview
+* All processors use pipelining
+* Performance increase in throughput, not latency
+* Limited by slowest pipeline

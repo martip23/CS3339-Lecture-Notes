@@ -22,6 +22,9 @@
 * Instruction to use data before it's ready
 	* How to solve? Take an analysis so Processor knows if a variable is dependent or not.
 	* Compiler will determine what can be paralleled or not.
+	* **RAW** Read after write
+	* **WAR** Write after read
+	* **WAW** Write after write
 * **Solved by:**
 	* **Stalling pipeline** (Not ideal)
 	* **Forwarding - Using hardware aka bypassing**
@@ -36,9 +39,31 @@
 				* Control signal
 		* **Mem (stage) to EX**
 			* Two stage forwarding
+		* **Data hazard from Load-Store (Address computation)**
+			* Need to STALL
+		* **MEM to MEM**
 
 ### Control Hazards ###
 * Attempt to make decision about control before condition has been evaluated or the new PC target address is calculated.
 * Branch and jump instructions and exceptions.
+	* **Branch result at end of ALU but needed before Fetch**
+* **Handling**
+	* Stalling
+	* Delay decision(Branch delay)
+	* Move branch
+	* Guess and hope for the best
 
-----------
+#### Types of stalls ####
+* **nop** - (no op) bubble inserted between 2 instructions in a pipeline
+	* Used for load-use
+* **flush** - Reset to previous instruction
+	* For an n=100 loop, condition would be false only 1 time.
+
+#### Move branch ####
+* Moving branch tgt address calculation to ID
+	* Cmopute branch target address
+	* Need extra hardware
+		* Use the state register to access information earlier
+		* MEM/WB to IF/ID forwarding
+		* WB to IF/ID
+		* 

@@ -31,6 +31,8 @@
 		* **EX to EX**
 			* Premise: Add knows result at end of cycle 3 (Execute)
 			* Premise 2: Next arithmetic doesn't actually need result until right before cycle 3 (execute)
+
+
 			* Result: Forward instruction back to start of ALU for instruction 2 using state register.
 				* Can also be forwarded to next instruction.
 				* By the third cycle, should be written to register so forwarding is no longer needed
@@ -61,9 +63,13 @@
 
 #### Move branch ####
 * Moving branch tgt address calculation to ID
-	* Cmopute branch target address
+	* Compute branch target address
 	* Need extra hardware
 		* Use the state register to access information earlier
 		* MEM/WB to IF/ID forwarding
 		* WB to IF/ID
-		* 
+
+### **Delayed branches** ###
+
+* Moving instructions into delay slot where they can be executed while others are delayed.
+* 

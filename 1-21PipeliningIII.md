@@ -44,3 +44,5 @@
 
 ### Branch Target Buffer ###
 * Gets branch target buffer and caches the address for quick retrieval.
+* BTB eliminates the one cycle stall caused by branch taken prediction.
+* 

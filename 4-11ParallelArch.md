@@ -20,7 +20,7 @@
 * Fetch and ex more than one isn per cycle
 	* CPI often < 1
 * Generally use IPC (Instructions per cycle)
-* Physically added two ALUs
+* Physically added two ALUs (Functional Units - FU)
 * Register and DM not duplicated
 	* Regi and DM s/b consistent
 * More potential for Hazards
